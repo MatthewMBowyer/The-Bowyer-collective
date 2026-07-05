@@ -761,3 +761,18 @@ textarea:focus {
     padding: 28px 22px;
   }
 }
+
+/* Contact form only layout */
+
+.contact-form-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.contact-form-wrap .contact-form-card {
+  width: 100%;
+}
+
+.contact-form-wrap .contact-form-card h2 {
+  margin-bottom: 28px;
+}
