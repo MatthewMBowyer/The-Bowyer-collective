@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Contact | The Bowyer Collective</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact The Bowyer Collective to enquire about family, couples, matric farewell, event and corporate photography.">
+
+  <link rel="stylesheet" href="assets/css/bowyer.css">
+</head>
+
+<body>
+  <div class="page-shell">
+    <div id="site-header"></div>
+
+    <main>
+      <section class="contact-hero">
+        <div class="container">
+          <p class="eyebrow">Let’s connect</p>
+          <h1>Book your<br>photoshoot.</h1>
+          <div class="hero-line"></div>
+          <p>
+            Tell me what you are looking for and I will get back to you with availability,
+            package guidance and the next steps.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section-soft">
+        <div class="container">
+          <div class="contact-grid">
+            <div class="contact-card">
+              <p class="eyebrow">Get in touch</p>
+              <h2>Contact details</h2>
+
+              <div class="contact-detail">
+                <span>WhatsApp</span>
+                <a href="https://wa.me/27732657260" target="_blank" rel="noopener">073 265 7260</a>
+              </div>
+
+              <div class="contact-detail">
+                <span>Email</span>
+                <a href="mailto:hello@bowyercollective.co.za">hello@bowyercollective.co.za</a>
+              </div>
+
+              <div class="contact-detail">
+                <span>Instagram</span>
+                <a href="https://www.instagram.com/bowyer.collective" target="_blank" rel="noopener">@bowyer.collective</a>
+              </div>
+
+              <div class="contact-detail">
+                <span>Facebook</span>
+                <a href="#" target="_blank" rel="noopener">The Bowyer Collective</a>
+              </div>
+
+              <a
+                class="button contact-whatsapp-button"
+                href="https://wa.me/27732657260?text=Hi%20Chloe%2C%20I%20would%20like%20to%20book%20a%20photoshoot."
+                target="_blank"
+                rel="noopener"
+              >
+                WhatsApp Chloe
+              </a>
+            </div>
+
+            <div class="contact-form-card">
+              <p class="eyebrow">Quick enquiry</p>
+              <h2>What are you looking for?</h2>
+
+              <form id="contactWhatsappForm">
+                <div class="form-row">
+                  <label for="contactName">Your name</label>
+                  <input type="text" id="contactName" placeholder="Your name" required>
+                </div>
+
+                <div class="form-row">
+                  <label for="contactShootType">Shoot type</label>
+                  <select id="contactShootType" required>
+                    <option value="">Choose a shoot type</option>
+                    <option value="Family photoshoot">Family photoshoot</option>
+                    <option value="Couples photoshoot">Couples photoshoot</option>
+                    <option value="Matric farewell photoshoot">Matric farewell photoshoot</option>
+                    <option value="Event photography">Event photography</option>
+                    <option value="Corporate photography">Corporate photography</option>
+                    <option value="Other enquiry">Other enquiry</option>
+                  </select>
+                </div>
+
+                <div class="form-row">
+                  <label for="contactDate">Preferred date</label>
+                  <input type="text" id="contactDate" placeholder="Example: Saturday 20 July">
+                </div>
+
+                <div class="form-row">
+                  <label for="contactLocation">Preferred location</label>
+                  <input type="text" id="contactLocation" placeholder="Example: Pretoria, Johannesburg, venue name">
+                </div>
+
+                <div class="form-row">
+                  <label for="contactMessage">More details</label>
+                  <textarea id="contactMessage" rows="5" placeholder="Tell me about the shoot, number of people, style, location or anything important."></textarea>
+                </div>
+
+                <button type="submit">Send WhatsApp Enquiry</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+  </div>
+
+  <script src="assets/js/includes.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        const form = document.getElementById("contactWhatsappForm");
+
+        if (!form) {
+          return;
+        }
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const name = document.getElementById("contactName").value.trim();
+          const shootType = document.getElementById("contactShootType").value.trim();
+          const date = document.getElementById("contactDate").value.trim();
+          const location = document.getElementById("contactLocation").value.trim();
+          const message = document.getElementById("contactMessage").value.trim();
+
+          const whatsappNumber = "27732657260";
+
+          const whatsappMessage = `
+Hi Chloe,
+
+My name is ${name}.
+I am looking for: ${shootType}.
+
+Preferred date:
+${date || "I am flexible."}
+
+Preferred location:
+${location || "I still need guidance."}
+
+More details:
+${message || "I would like more information please."}
+          `.trim();
+
+          const encodedMessage = encodeURIComponent(whatsappMessage);
+          const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+          window.open(whatsappUrl, "_blank", "noopener");
+        });
+      }, 300);
+    });
+  </script>
+</body>
+</html>
